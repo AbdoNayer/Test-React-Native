@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import { useNavigation } from '@react-navigation/native';
+import tw from "twrnc";
 
 interface HeaderProps {
     name: string;
@@ -9,22 +10,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ name }) => {
     const navigation:any = useNavigation();
     return (
-        <View style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            elevation: 0,
-            backgroundColor: '#000',
-            padding: 15,
-            shadowColor: "#959595",
-            shadowOffset: { width: 1, height: 1 },
-            shadowOpacity: 0.40,
-            shadowRadius: 2.2,
-        }}>
+        <View style={tw`flex flex-row items-center justify-between p-5 bg-black`}>
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-                <Icon name="menu" size={20} color={"#fff"} />
+                <Icon name="menu"  size={20} color={"#fff"} />
             </TouchableOpacity>
-            <Text style={{ color: '#fff' }}>{name}</Text>
+            <Text style={tw`text-[20px] text-white`}>{name}</Text>
             <TouchableOpacity>
                 <Icon name="bell" size={20} color={"#fff"} />
             </TouchableOpacity>
