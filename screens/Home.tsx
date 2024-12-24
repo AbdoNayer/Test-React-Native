@@ -4,7 +4,6 @@ import {
   Text,
   FlatList,
   ActivityIndicator,
-  StyleSheet,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Header, ItemResult, NoDataFound, Slider } from "../components";
@@ -42,13 +41,14 @@ const Home = () => {
   const renderItem = ({ item }: { item: Product }) => (
     <ItemResult item={item} />
   );
+
   return (
     <SafeAreaView style={tw`flex-1`}>
       <Header name="Home" />
       <View style={tw`py-4 h-full`}>
         <Slider />
         <Text style={tw`text-[20px] text-center text-black`}>Category</Text>
-        <View style={tw`px-2 flex-1 mt-5`}>
+        <View style={tw`px-2 flex-1 mt-5 pb-[50px]`}>
           {loading ? (
             <View
               style={tw`flex items-center justify-center w-full h-screen flex-1`}

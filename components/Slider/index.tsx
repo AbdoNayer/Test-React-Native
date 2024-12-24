@@ -1,6 +1,16 @@
 import { View, Text, Image } from "react-native";
 import Swiper from "react-native-swiper";
+import { dotStyle, activeDotStyle, dataImage } from "./config"; // Adjust the path as necessary
 import tw from "twrnc";
+
+interface ImageItem {
+  id: string;
+  url: string;
+}
+
+interface Props {
+  dataImage: ImageItem[];
+}
 
 const Slider = () => {
   return (
@@ -11,39 +21,22 @@ const Slider = () => {
         containerStyle={tw`w-full h-full relative`}
         autoplay={true}
         paginationStyle={tw`absolute bottom-[10px]`}
-        dotStyle={{
-          borderRadius: 50,
-          height: 10,
-          width: 10,
-          backgroundColor: "#DDD",
-        }}
-        activeDotStyle={{
-          backgroundColor: "#F00",
-          width: 10,
-          height: 10,
-          borderRadius: 50,
-        }}
+        dotStyle={dotStyle}
+        activeDotStyle={activeDotStyle}
         loop={true}
-        autoplayTimeout={2}
+        autoplayTimeout={4}
       >
-        <View style={tw`relative`}>
-          <Image
-            source={{
-              uri: "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
-            }}
-            style={tw`w-full h-full`}
-            resizeMode="cover"
-          />
-        </View>
-        <View style={tw`relative`}>
-          <Image
-            source={{
-              uri: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-            }}
-            style={tw`w-full h-full`}
-            resizeMode="cover"
-          />
-        </View>
+        {dataImage.map((item, index) => (
+          <View key={index} style={tw`relative`}>
+            <Image
+              source={{
+                uri: item.url,
+              }}
+              style={tw`w-full h-full`}
+              resizeMode="cover"
+            />
+          </View>
+        ))}
       </Swiper>
     </View>
   );
