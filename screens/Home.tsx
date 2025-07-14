@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  ActivityIndicator,
-} from "react-native";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Header, ItemResult, NoDataFound, Slider } from "../components";
 import tw from "twrnc";
@@ -16,7 +11,7 @@ interface Product {
   description: string;
   price: number;
   thumbnail: string;
-  availabilityStatus:string
+  availabilityStatus: string;
 }
 
 const Home = () => {
@@ -62,9 +57,7 @@ const Home = () => {
               renderItem={renderItem}
               numColumns={2}
               contentContainerStyle={tw``}
-              ListEmptyComponent={() => (
-                <NoDataFound />
-              )}
+              ListEmptyComponent={() => <NoDataFound />}
             />
           )}
         </View>

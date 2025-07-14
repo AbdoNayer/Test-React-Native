@@ -1,9 +1,7 @@
-import AppNavigation from './navigations/AppNavigation';
+import AppNavigation from "./navigations/AppNavigation";
 
 const App = () => {
-  return (
-    <AppNavigation />
-  );
-}
+  return <AppNavigation />;
+};
 
 export default App;
